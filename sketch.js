@@ -21,7 +21,7 @@ function setup() {
 	}
 
 	var bob_options = {
-		isStatic : true,
+		isStatic : false,
 		restitution : 0.3, 
 		frictionAir : 0,
 		density : 1.2
@@ -46,7 +46,11 @@ function setup() {
 	bob4= Bodies.circle(464,500,20,bob_options); 
 	World.add(world,bob4);
 
-     //rope1= new rope(bob,roof,-80,0);
+     rope1= new rope(bob.body,roof.body,-80);
+	 rope2= new rope(bob1.body,roof.body,-40);
+	 rope3= new rope(bob2.body,roof.body,0);
+	 rope4= new rope(bob3.body,roof.body,40);
+	 rope5= new rope(bob4.body,roof.body,80);
 
 	Engine.run(engine);
 	
@@ -61,7 +65,7 @@ function draw() {
 
   //call display() to show ropes here
 
-  // rope1.display();
+  
   
   //create ellipse shape for multiple bobs here
   ellipseMode(RADIUS);
@@ -70,6 +74,14 @@ function draw() {
   ellipse(bob2.position.x,bob2.position.y,20);
   ellipse(bob3.position.x,bob3.position.y,20);
   ellipse(bob4.position.x,bob4.position.y,20);
+
+  rope1.display();
+  rope2.display();
+  rope3.display();
+  rope4.display();
+  rope5.display();
+  
 }
+
 
 //Write keyPressed function and apply force on pressing up_arrow key on the first bob.
